@@ -1,5 +1,5 @@
 import 'package:bookly/core/utils/styles.dart';
-import 'package:bookly/features/home/data/precentaion/views/widgets/best_seller_list_view_item.dart';
+import 'package:bookly/features/home/precentation/precentaion/views/widgets/best_seller_list_view_item.dart';
 import 'package:bookly/features/search/precentation/views/widgets/custom_search_text_field.dart';
 import 'package:flutter/material.dart';
 
