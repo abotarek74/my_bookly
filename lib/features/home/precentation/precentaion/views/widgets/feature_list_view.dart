@@ -4,9 +4,14 @@ import 'package:bookly/features/home/precentation/precentaion/manager/featured%2
 import 'package:bookly/features/home/precentation/precentaion/views/widgets/custom_book_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+
+import '../../../../../../core/utils/app_router.dart';
 
 class FeaturesBooksListView extends StatelessWidget {
   const FeaturesBooksListView({super.key});
+
+  get bookModel => null;
 
   @override
   Widget build(BuildContext context) {
@@ -22,10 +27,16 @@ class FeaturesBooksListView extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8),
-                    child: CustomBookImage(
-                      imageUrl:
-                          state.books[index].volumeInfo.imageLinks?.thumbnail ??
-                              '',
+                    child: GestureDetector(
+                      onTap: () {
+                        GoRouter.of(context).push(AppRouter.kBookDetailsView,
+                            extra: state.books[index]);
+                      },
+                      child: CustomBookImage(
+                        imageUrl: state.books[index].volumeInfo.imageLinks
+                                ?.thumbnail ??
+                            '',
+                      ),
                     ),
                   );
                 }),
